@@ -1,0 +1,30 @@
+{% extends 'owner/base_generic.html' %}
+
+{% block content %}
+    <label>Búsqueda Owner</label>
+    <div>
+        <form action="" method="get" style="width:500px">
+            <input class="form-control mb-8" placeholder="Ingrese un nombre de Owner o un pais" name="q" value="{{query | escape}}">
+        </form>
+    </div>
+
+{% if query %}
+    {% if data %}
+        <ul>
+            {% for owner in data %}
+                <strong>{{forloop.counter}}</strong>
+                {% if owner.habilitado == True %}
+                    <li>{{owner.nombre}} es de {{owner.pais}} y tiene {{owner.edad}} años y su identificación está vigente.</li>
+                {% else %}
+                    <li>{{owner.nombre}} es de {{owner.pais}} y tiene {{owner.edad}} años y su identificación no está vigente.</li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No se han encontrado coincidencias.</p>
+    {% endif %}
+{% else %}
+    <p>No se han ingresado datos para la búsqueda.</p>
+{% endif %}
+
+{% endblock %}

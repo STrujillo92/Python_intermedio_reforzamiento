@@ -1,0 +1,14 @@
+{%  extends "category/base_generic.html" %}
+    {% block content %}
+        <p>¡¡Hola Pythonista, el App <strong>Category</strong> está funcionando correctamente!!</p>
+        {% for category in data %}
+            <p> <strong>Nombre: </strong>{{ category.name }}</p>
+            {% comment %}
+            {%  if category.edad > 18 %}
+                <p>{{ category.nombre }} es mayor de edad.</p>
+            {% else %}
+                <p>{{ category.nombre }} es menor de edad.</p>
+            {% endif %}
+            {% endcomment %}
+        {% endfor %}
+    {% endblock %}

@@ -1,0 +1,17 @@
+{%  extends "pokemon/base_generic.html" %}
+    {% block content %}
+        <p>¡¡Hola Pythonista, el App <strong>Pokemon</strong> está funcionando correctamente!!</p>
+        {% for pokemon in data %}
+            <p> <strong>Nombre: </strong>{{ pokemon.nombre }}</p>
+            <p> <strong>Tipo: </strong>{{ pokemon.tipo }}</p>
+            <p> <strong>Número: </strong>{{ pokemon.numero }}</p>
+            <p> <strong>Generación: </strong>{{ pokemon.generacion }}</p>
+            {% comment %}
+            {%  if pokemon.edad > 18 %}
+                <p>{{ pokemon.nombre }} es mayor de edad.</p>
+            {% else %}
+                <p>{{ pokemon.nombre }} es menor de edad.</p>
+            {% endif %}
+            {% endcomment %}
+        {% endfor %}
+    {% endblock %}

@@ -1,0 +1,17 @@
+{%  extends "owner/base_generic.html" %}
+    {% block content %}
+        <p>¡¡Hola Pythonista, el App <strong>Owner</strong> está funcionando correctamente!!</p>
+        {% for owner in data %}
+            <p> <strong>Nombre: </strong>{{ owner.nombre }}</p>
+            <p> <strong>Edad: </strong>{{ owner.edad }}</p>
+            <p> <strong>País: </strong>{{ owner.pais }}</p>
+            <p> <strong>Habilitado: </strong>{{ owner.habilitado }}</p>
+            {% comment %}
+            {%  if owner.edad > 18 %}
+                <p>{{ owner.nombre }} es mayor de edad.</p>
+            {% else %}
+                <p>{{ owner.nombre }} es menor de edad.</p>
+            {% endif %}
+            {% endcomment %}
+        {% endfor %}
+    {% endblock %}

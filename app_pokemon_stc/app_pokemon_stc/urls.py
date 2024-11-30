@@ -1,3 +1,5 @@
+from django.contrib import admin
+from django.urls import path, include
 """
 URL configuration for app_pokemon_stc project.
 
@@ -19,4 +21,8 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('catalog/', include('catalog.urls')),
+    path('category/', include('category.urls')),
+    path('owner/', include('owner.urls')),
+    path('pokemon/', include('pokemon.urls')),
 ]
